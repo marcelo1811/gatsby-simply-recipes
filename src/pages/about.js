@@ -5,7 +5,9 @@ import Navbar from "../components/Navbar"
 const About = () => {
   return (
     <Layout>
-      <h2>hello from About page</h2>
+      <div className="about-heading">
+        <h1>About page</h1>
+      </div>
     </Layout>
   )
 }
