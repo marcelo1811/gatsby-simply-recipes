@@ -1,22 +1,29 @@
 import { Link } from "gatsby"
-import React from "react"
+import React, { useState } from "react"
 import { FaAlignJustify } from "react-icons/fa"
 import logo from "../assets/images/logo.svg"
 
 const Navbar = () => {
+  const [show, setShow] = useState(false)
+
   return (
     <nav className="navbar">
       <div className="nav-center">
         <div className="nav-header">
-          <Link to="/">
+          <Link to="/" onClick={() => setShow(!show)}>
             <img src={logo} alt="simply recipes" />
           </Link>
-          <button className="nav-btn">
+          <button className="nav-btn btn" onClick={() => setShow(!show)}>
             <FaAlignJustify />
           </button>
         </div>
-        <div className="nav-links show-links">
-          <Link to="/" className="nav-link" activeClassName="active-link">
+        <div className={`nav-links ${show ? "show-links" : ""}`}>
+          <Link
+            to="/"
+            className="nav-link"
+            activeClassName="active-link"
+            onClick={() => setShow(!show)}
+          >
             home
           </Link>
           <Link
@@ -26,14 +33,24 @@ const Navbar = () => {
           >
             recipes
           </Link>
-          <Link to="/tags" className="nav-link" activeClassName="active-link">
+          <Link
+            to="/tags"
+            className="nav-link"
+            activeClassName="active-link"
+            onClick={() => setShow(!show)}
+          >
             tags
           </Link>
-          <Link to="/about" className="nav-link" activeClassName="active-link">
+          <Link
+            to="/about"
+            className="nav-link"
+            activeClassName="active-link"
+            onClick={() => setShow(!show)}
+          >
             about
           </Link>
-          <div className="nav-link contact-link">
-            <Link to="/contact" className="btn">
+          <div className="nav-link contact-link" onClick={() => setShow(!show)}>
+            <Link to="/contact" className="btn" onClick={() => setShow(!show)}>
               contact
             </Link>
           </div>
