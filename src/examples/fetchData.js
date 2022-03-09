@@ -2,11 +2,11 @@ import { useStaticQuery } from "gatsby"
 import React from "react"
 
 const getData = `
-  {
+  query {
     site(
       siteMetadata: {complexData: {}, description: {}, simpleData: {}, author: {}}
     ) {
-      siteMetadata {
+      info:siteMetadata {
         author
         complexData {
           age
@@ -27,7 +27,7 @@ const getData = `
 const FetchData = () => {
   const {
     site: {
-      siteMedtadata: { title },
+      info: { title },
     },
   } = useStaticQuery(getData)
   return (
