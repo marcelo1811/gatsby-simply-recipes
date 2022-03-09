@@ -1,6 +1,7 @@
 import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
 import Layout from "../components/Layout"
+import FetchData from "../examples/fetchData"
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
             </div>
           </div>
         </header>
+        <FetchData />
       </main>
     </Layout>
   )

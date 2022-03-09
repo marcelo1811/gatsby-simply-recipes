@@ -5,6 +5,20 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    title: "Simply Recipes",
+    description: "Nice and clean recupes site",
+    author: "@marelomiyachi",
+    person: {
+      name: "Marcelo",
+      age: 24,
+    },
+    simpleData: ["item 1", "item 1"],
+    complexData: [
+      { name: "marcelo", age: 24 },
+      { name: "julia", age: 24 },
+    ],
+  },
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
