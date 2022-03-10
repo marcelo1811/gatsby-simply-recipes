@@ -1,12 +1,17 @@
-import { useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 
-const getData = `
+const getData = graphql`
   query {
     site(
-      siteMetadata: {complexData: {}, description: {}, simpleData: {}, author: {}}
+      siteMetadata: {
+        complexData: {}
+        description: {}
+        simpleData: {}
+        author: {}
+      }
     ) {
-      info:siteMetadata {
+      info: siteMetadata {
         author
         complexData {
           age
