@@ -1,7 +1,8 @@
 import React from "react"
 import Layout from "../components/Layout"
 import Gallery from "../examples/Gallery"
-const Recipes = () => {
+
+const Testing = () => {
   return (
     <Layout>
       <main className="page">
@@ -11,4 +12,4 @@ const Recipes = () => {
   )
 }
 
-export default Recipes
+export default Testing
