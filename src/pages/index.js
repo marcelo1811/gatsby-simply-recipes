@@ -1,5 +1,6 @@
 import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
+import AllRecipes from "../components/AllRecipes"
 import Layout from "../components/Layout"
 
 const Home = () => {
@@ -22,6 +23,7 @@ const Home = () => {
           </div>
         </header>
       </main>
+      <AllRecipes />
     </Layout>
   )
 }
