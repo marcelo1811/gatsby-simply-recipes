@@ -1,6 +1,7 @@
-import { graphql } from 'gatsby';
-import { getImage } from 'gatsby-plugin-image';
+import { graphql, Link } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
+import { BsClock, BsClockHistory, BsPeople } from 'react-icons/bs';
 import Layout from '../components/Layout';
 
 const RecipeTemplate = ({ data }) => {
@@ -20,7 +21,69 @@ const RecipeTemplate = ({ data }) => {
     <Layout>
       <main className='page'>
         <div className="recipe-page">
-          <h2>title</h2>
+          <section className="recipe-hero">
+            <GatsbyImage image={pathToImage} alt={title} className='about-img' />
+          </section>
+          <section className="recipe-content">
+            <h2>{title}</h2>
+            <p>{description}</p>
+            {/* icons */}
+            <div className="recipe-icons">
+              <article>
+                <BsClock />
+                <h5>prep time</h5>
+                <p>{prepTime} min.</p>
+              </article>
+              <article>
+                <BsClockHistory />
+                <h5>cook time</h5>
+                <p>{cookTime} min.</p>
+              </article>
+              <article>
+                <BsPeople />
+                <h5>serving</h5>
+                <p>{servings}</p>
+              </article>
+            </div>
+            {/* tags */}
+            <p className="recipe-tags">
+              Tags:
+              {tags.map((tag, index) => {
+                return (
+                  <Link to={`/${tag}`} key={index}>
+                    {tag}
+                  </Link>
+                )
+              })}
+            </p>
+          </section>
+          {/* rest of the content */}
+          <section className="recipe-content">
+            <article>
+              <h4>instructions</h4>
+              {ingredients.map((item, index) => {
+                return <div key={index} className='single-instruction'>
+                  <header>
+                    <p>step {index + 1}</p>
+                    <div></div>
+                  </header>
+                  <p>{item}</p>
+                </div>
+              })}
+            </article>
+            <article className="second-column">
+              <div>
+                <h4>ingredients</h4>
+                {tools.map((item, index) => {
+                  return (
+                    <div className='single-tool' key={index}>
+                      {item}
+                    </div>
+                  )
+                })}
+              </div>
+            </article>
+          </section>
         </div>
       </main>
     </Layout>
