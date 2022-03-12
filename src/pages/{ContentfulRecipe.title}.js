@@ -76,7 +76,7 @@ const RecipeTemplate = ({ data }) => {
                 <h4>ingredients</h4>
                 {ingredients.map((item, index) => {
                   return (
-                    <div className='single-tool' key={index}>
+                    <div className='single-ingredient' key={index}>
                       {item}
                     </div>
                   )
