@@ -22,8 +22,8 @@ const Home = () => {
             </div>
           </div>
         </header>
+        <AllRecipes />
       </main>
-      <AllRecipes />
     </Layout>
   )
 }
