@@ -5,23 +5,6 @@ import Layout from "../components/Layout"
 import RecipesList from "../components/RecipesList"
 import SEO from "../components/SEO"
 
-export const query = graphql`
-  {
-    allContentfulRecipe(filter: { featured: { eq: true } }) {
-      nodes {
-        cookTime
-        title
-        id
-        prepTime
-        image {
-          gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
-        }
-      }
-      totalCount
-    }
-  }
-`
-
 const About = ({
   data: {
     allContentfulRecipe: { nodes: recipes },
@@ -46,14 +29,12 @@ const About = ({
               contact
             </Link>
           </article>
-          <article>
-            <StaticImage
-              src="../assets/images/about.jpeg"
-              alt="Person Pouring Salt in Bowl"
-              className="about-img"
-              placeholder="blurred"
-            />
-          </article>
+          <StaticImage
+            src="../assets/images/about.jpeg"
+            alt="Person Pouring Salt in Bowl"
+            className="about-img"
+            placeholder="blurred"
+          />
         </section>
         <section className="featured-recipes">
           <h5>Look at this Awesomesource!</h5>
@@ -63,5 +44,22 @@ const About = ({
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    allContentfulRecipe(filter: { featured: { eq: true } }) {
+      nodes {
+        cookTime
+        title
+        id
+        prepTime
+        image {
+          gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
+        }
+      }
+      totalCount
+    }
+  }
+`
 
 export default About
