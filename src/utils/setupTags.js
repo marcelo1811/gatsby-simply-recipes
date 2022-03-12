@@ -1,4 +1,4 @@
-export default function setupTags(recupes) {
+export default function setupTags(recipes) {
 	const allTags = {}
 
 	recipes.forEach(recipe => {
