@@ -1,5 +1,6 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
+import slugify from "slugify"
 import Layout from "../components/Layout"
 import setupTags from "../utils/setupTags"
 
@@ -12,7 +13,7 @@ const Tags = ({ data }) => {
         <section className="tags-wrapper">
           {newTags.map((tag, index) => {
             const [text, value] = tag
-            const slug = slugify(tag, { lower: true })
+            const slug = slugify(text, { lower: true })
             return (
               <Link to={`/tags/${slug}`} key={index} className='tag'>
                 <h5>{text}</h5>

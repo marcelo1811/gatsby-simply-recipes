@@ -41,7 +41,7 @@ const About = ({
               retro.
             </p>
             <Link to="/contact" className="btn">
-              contract
+              contact
             </Link>
           </article>
           <article>
