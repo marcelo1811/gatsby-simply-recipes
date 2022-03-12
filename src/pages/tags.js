@@ -12,8 +12,9 @@ const Tags = ({ data }) => {
         <section className="tags-wrapper">
           {newTags.map((tag, index) => {
             const [text, value] = tag
+            const slug = slugify(tag, { lower: true })
             return (
-              <Link to={`/${text}`} key={index} className='tag'>
+              <Link to={`/tags/${slug}`} key={index} className='tag'>
                 <h5>{text}</h5>
                 <p>{value} recipe</p>
               </Link>
