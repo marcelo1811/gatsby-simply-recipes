@@ -1,7 +1,29 @@
+import { graphql } from "gatsby"
 import React from "react"
 import Layout from "../components/Layout"
+import RecipesList from "../components/RecipesList"
 
-const Contact = () => {
+export const query = graphql`
+  {
+    allContentfulRecipe(filter: { featured: { eq: true } }) {
+      nodes {
+        cookTime
+        title
+        id
+        prepTime
+        image {
+          gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
+        }
+      }
+      totalCount
+    }
+  }
+`
+const Contact = ({
+  data: {
+    allContentfulRecipe: { nodes: recipes },
+  },
+}) => {
   return (
     <Layout>
       <main className="page">
@@ -56,6 +78,10 @@ const Contact = () => {
               <button className="btn block">Submit</button>
             </form>
           </article>
+        </section>
+        <section>
+          <h5>Look at this Awesomesouce!</h5>
+          <RecipesList recipes={recipes} />
         </section>
       </main>
     </Layout>
